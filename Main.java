@@ -1,15 +1,17 @@
-import company.beans.Person;
-import company.exceptions.InvalidAgeException;
+import company.implementations.*;
+import company.interfaces.*;
+import company.utils.*;
 
 public class Main {
 
     public static void main(String[] args) {
-        try {
-            Person person = new Person("Jan Kowalski", 30);
-            System.out.println("Imie: " + person.getName());
-            System.out.println("Wiek: " + person.getAge());
-        } catch (InvalidAgeException e) {
-            System.err.println("Błąd: " + e.getMessage());
-        }
+        int a = 10;
+        int b = 20;
+
+        int sum = MathUtils.add(a, b);
+        System.out.println("Suma: " + sum);
+
+        Messenger messenger = new EmailMessenger();
+        messenger.sendMessage("Suma " + a + " i " + b + " wynosi: " + sum);
     }
 }
